@@ -1,0 +1,23 @@
+<div>
+  <ul>
+    <li *ngFor="let record of pageData">{{record.id}} - {{record.name}}</li>
+  </ul>
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination" *ngIf="count > 0">
+      <li class="page-item"  [attr.disabled]="page === 1">
+        <a class="page-link" href="#" (click)="onPrev()" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li *ngFor="let pageNum of getPages()" class="page-item"><a class="page-link" (click)="onPage(pageNum)" href="#">{{pageNum}}</a></li>
+      <li class="page-item" [attr.disabled]="lastPage()">
+        <a class="page-link" href="#" aria-label="Next" (click)="onNext()">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
